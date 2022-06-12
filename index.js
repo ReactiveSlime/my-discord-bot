@@ -69,6 +69,20 @@ fs.readdirSync(path.resolve(__dirname, 'commands'))
             console.error(`Failed to load command ${f}: ${error}`);
         }
     });
+    //Load Functions
+    fs.readdirSync(path.resolve(__dirname, 'functions'))
+    .filter(f => f.endsWith('.js'))
+    .forEach(f => {
+        // Attempt to load the file
+        console.log(`👌 Loading functions ${f}`);
+        try {
+            // Require the raw file
+            let command = require(`./functions/${f}`);
+        } catch (error) {
+            // Log any errors from the validator or from requiring the file
+            console.error(`Failed to load function ${f}: ${error}`);
+        }
+    });
 
 
 //get bot token from config.json file and login to discord

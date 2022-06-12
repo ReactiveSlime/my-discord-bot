@@ -51,22 +51,30 @@ module.exports.run = async (client, message, args) => {
                             let y = parseInt(json.location[1]);
                             let z = parseInt(json.location[2]);
 
-                            if (json.dimension == "NORMAL") {var dimension = "Overworld";}
-                            else if (json.dimension == "NETHER") {var dimension = "The Nether"; }
-                            else if (json.dimension == "END") {var dimension = "The End";}
+                            let health = Math.ceil(json.health);
+                            let hunger = Math.ceil(json.hunger);
+
+
+
+
+                            if (json.dimension == "NORMAL") { var dimension = "Overworld"; }
+                            else if (json.dimension == "NETHER") { var dimension = "The Nether"; }
+                            else if (json.dimension == "END") { var dimension = "The End"; }
+                            else { var dimension = "Unknown"; }
 
                             // embed
                             let embed = new MessageEmbed();
                             embed.setTitle(json.displayName);
                             embed.setColor("#0099ff");
+                            embed.setThumbnail('https://crafatar.com/avatars/' + json.uuid);
                             embed.addField(
                                 `**❯ UUID:** ${json.uuid}`,
                                 [
                                     `**❯ GameMode:** ${json.gamemode}`,
-                                    `**❯ Health:** ${json.health}`,
-                                    `**❯ Hunger:** ${json.hunger}`,
+                                    `**❯ Health:** ${health}`,
+                                    `**❯ Hunger:** ${hunger}`,
                                     `**❯ Dimension:** ${dimension}`,
-                                    `**❯ XYZ:** ${x} ${y} ${z}`,
+                                    `**❯ XYZ:** ${x}, ${y}, ${z},`,
                                 ].join('\n'),
                             )
                             message.channel.send({ embeds: [embed] })
