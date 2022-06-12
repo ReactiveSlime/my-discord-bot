@@ -9,6 +9,11 @@ const fetch = require('node-fetch');
 var botconfig = require('../config.json');
 
 module.exports.run = async (client, message, args) => {
+
+    if (args.length == 0){
+
+    
+
     fetch(`${botconfig.url}` + `/v1` + `/players`, {
         method: "get",
         headers: { "Content-Type": "application/json", "key": `${botconfig.key}` }
@@ -29,6 +34,9 @@ module.exports.run = async (client, message, args) => {
             }
             message.channel.send({ embeds: [embed] })
         })
+    } else {
+        console.log(args[0]);
+    }
 };
 
 
