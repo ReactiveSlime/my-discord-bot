@@ -36,7 +36,6 @@ module.exports.run = async (client, message, args) => {
 
 
     if (args[0] == "uuid") {
-        if (uuid == null) {
             fetch('https://api.mojang.com/user/profiles/' + uuid + '/names');
             if (uuid == false) {
                 channel.message.send("The UUID provided is invalid.");
