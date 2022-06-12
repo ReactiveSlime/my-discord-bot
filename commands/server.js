@@ -52,6 +52,7 @@ module.exports.run = async (client, message, args) => {
                 embeds: [embed]
             })
         })
+    })
 };
 
 
