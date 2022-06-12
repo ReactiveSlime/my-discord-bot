@@ -5,9 +5,8 @@ module.exports = {
 };
 
 const { MessageEmbed } = require("discord.js");
-
-
 var botconfig = require('../config.json');
+
 module.exports.run = async (client, message, args, Discord, user, text) => {
     if (message.author.id == "902736282998947851" || message.author.id == "321590712665636865") {
         if (!args || args.length < 1) return message.reply("Must provide a command name to reload.");
@@ -23,11 +22,7 @@ module.exports.run = async (client, message, args, Discord, user, text) => {
         const props = require(`./${commandName}.js`);
         message.client.commands.set(commandName, props);
         message.reply(`The command ${commandName} has been reloaded`);
-    } else {
-        message.channel.send("Sorry, you do not have permissisons to use this command, **" + message.author.username + "**.")
-    }
-    
-
+    } else { message.channel.send("Sorry, you do not have permissisons to use this command, **" + message.author.username + "**.") }
 };
 
 

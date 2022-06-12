@@ -6,7 +6,6 @@ module.exports = {
 var Discord = require("discord.js");
 const fetch = require('node-fetch');
 
-
 var botconfig = require('../config.json');
 module.exports.run = async (client, message, args) => {
     fetch(`${botconfig.url}` + `/v1` + `/ping`, {

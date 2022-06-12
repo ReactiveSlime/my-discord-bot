@@ -5,7 +5,6 @@ const client = new Client({
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
-
 var botconfig = require('./config.json');
 
 
@@ -14,24 +13,9 @@ client.on('ready', () => {
     console.log(`${client.user.tag} is online!`);
 });
 
-/*
-client.on("messageCreate", (message) => {
-  if (message.content.startsWith("ping")) {
-      fetch(`${botconfig.url}` + `/v1` + `/ping`, {
-          method: "get",
-          headers: { "Content-Type": "application/json", "key": `${botconfig.key}` }
-      })
-      .then((res) => res.json())
-      .then((json) => message.channel.send(json));
-  }
-});
-*/
-
-
 //Commands System
 const commands = new Map();
 client.commands = commands;
-
 
 client.on('messageCreate', message => {
     // Ignore messages from bots and from DMs (non-guild channels)
