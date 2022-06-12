@@ -6,8 +6,6 @@ module.exports = {
 
 const { MessageEmbed } = require("discord.js");
 const fetch = require('node-fetch');
-
-
 var botconfig = require('../config.json');
 module.exports.run = async (client, message, args) => {
 
@@ -20,13 +18,9 @@ module.exports.run = async (client, message, args) => {
         .then((json) => {
             //check to see if it is storming . if it is also check to see if it is thundering else its clear
             if (json.storm) {
-                if (json.thundering) {var weather = "Thundering Storm";}
+                if (json.thundering) {var weather = "Thundering";}
                 else { var weather = "Storming"; }}
             else { var weather = "Clear"; }
-
-
-
-
             // embed
             let embed = new MessageEmbed();
             embed.setTitle("Server Information")
