@@ -6,5 +6,8 @@
     "world_uuid":"",
     "world_nether":"",
     "world_the_end":"",
-    "developerid": ["", ""]
+    "developerid": ["", ""],
+    "server_ip": "",
+    "rcon_port": "",
+    "rcon_pw": ""
 }

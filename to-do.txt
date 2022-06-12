@@ -1,2 +1,5 @@
 add memory usage
 fix uptime
+link to dynmap
+setup to use uuid or username
+setup vscode server
