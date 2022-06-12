@@ -35,9 +35,16 @@ module.exports.run = async (client, message, args) => {
             message.channel.send({ embeds: [embed] })
         })
     } else {
-        console.log(args[0]);
+       if(args.length == 1){
+        message.channel.send("Invaled Command please use `!player uuid <uuid>`");
     }
+    else{
+        if(args[1] == "uuid"){
+            message.chanel.send("Valid UUID")
+        }
 };
+}
+}
 
 
 
