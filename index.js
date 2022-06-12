@@ -45,6 +45,61 @@ i18n.configure({
    }
 });
 
+// ———————————————[DISCORDTOGETHER]———————————————
+const { DiscordTogether } = require('discord-together');
+client.discordTogether = new DiscordTogether(client);
+
+// ———————————————[MYSQL]———————————————
+
+var mysql = require('mysql');
+ var connection = mysql.createConnection({
+     host: client.config.sql.host,
+     user: client.config.sql.user,
+     password: client.config.sql.password,
+     database: client.config.sql.database
+ });
+ client.sqlconn = connection;
+
+// ———————————————[MUSIC PLAYER]———————————————
+
+const { Player, Utils } = require("discord-music-player");
+ const player = new Player(client, {
+     leaveOnEmpty: false,
+     deafenOnJoin: true,
+ });
+
+client.queue = new Map();
+client.player = player;
+
+client.player
+    // Emitted when channel was empty.
+    .on('channelEmpty',  (queue) =>
+        queue.data.channel({ embeds: [new MessageEmbed().setColor('#0099ff').setTitle(`The channel is empty, I have removed the music`)]}))
+    // Emitted when a song was added to the queue.
+    .on('songAdd',  (queue, song) =>
+        queue.data.channel({ embeds: [new MessageEmbed().setColor('#0099ff').setTitle(song + ' has been added to the queue')]}))
+    // Emitted when a playlist was added to the queue.
+    .on('playlistAdd',  (queue, playlist) =>
+        queue.data.channel({ embeds: [new MessageEmbed().setColor('#0099ff').setTitle(`I just added a playlist ${playlist} with ${playlist.songs.length} songs!`)]}))
+    // Emitted when there was no more music to play.
+    .on('queueEnd',  (queue) =>
+        queue.data.channel({ embeds: [new MessageEmbed().setColor('#0099ff').setTitle('The queue has ended!')]}))
+    // Emitted when a song changed.
+    .on('songChanged', (queue, newSong, oldSong) =>
+        queue.data.channel({ embeds: [new MessageEmbed().setColor('#0099ff').setTitle(newSong + ' is now playing!')]}))
+    // Emitted when a first song in the queue started playing.
+    .on('songFirst',  (queue, song) =>
+        queue.data.channel({ embeds: [new MessageEmbed().setColor('#0099ff').setTitle(song + ' is now playing!')]}))
+    // Emitted when someone disconnected the bot from the channel.
+    .on('clientDisconnect', (queue) =>
+        queue.data.channel({ embeds: [new MessageEmbed().setColor('#0099ff').setTitle('I was disconnected!')]}))
+    // Emitted when deafenOnJoin is true and the bot was undeafened
+    .on('clientUndeafen', (queue) =>
+        queue.data.channel({ embeds: [new MessageEmbed().setColor('#0099ff').setTitle('I was undeafened!')]}))
+    // Emitted when there was an error in runtime
+    .on('error', (error, queue) => {
+        console.log(`Error: ${error} in ${queue.guild.name}`);
+    });
 
 // Initializing the project.
 
