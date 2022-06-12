@@ -55,6 +55,7 @@ module.exports.run = async (client, message, args) => {
             message.reply("You are not in any Voice Channels, make sure you inside voice channel")
 
         };
+    }
 
 
 
@@ -71,7 +72,7 @@ module.exports.run = async (client, message, args) => {
 
 
 
-
+/*
     fetch(`${botconfig.url}` + `/v1` + `/players`, {
         method: "get",
         headers: { "Content-Type": "application/json", "key": `${botconfig.key}` }
@@ -93,6 +94,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send({ embeds: [embed] })
         })
 };
+*/
 
 
 
