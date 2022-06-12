@@ -45,10 +45,6 @@ module.exports.run = async (client, message, args) => {
                 exit;
             }
             exit;
-        }
-
-
-
         } else {
 
             message.reply("You are not in any Voice Channels, make sure you inside voice channel")
