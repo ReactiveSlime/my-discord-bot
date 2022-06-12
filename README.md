@@ -1,2 +1,0 @@
-# NEKOBOT
-my NEKO BOT
