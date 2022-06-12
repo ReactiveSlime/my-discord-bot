@@ -45,15 +45,15 @@ function generateString(length) {
 
 client.on("ready", async () => {
 
-        GuildChis = client.guilds.cache.get("715812735052546078");
+        GuildChis = client.guilds.cache.get("985116082660606008");
         if (GuildChis) {
-            ChannelChis = GuildChis.channels.cache.get("862510486444572722");
+            ChannelChis = GuildChis.channels.cache.get("985116083214229516");
         }
 
         if (!ChannelChis) {
-            console.log('[ChisDiscord] A matching channel could not be found. Please check your DISCORD_SERVERID and DISCORD_CHANNELID environment variables.');
+            console.log('[MCstats] A matching channel could not be found. Please check your DISCORD_SERVERID and DISCORD_CHANNELID environment variables.');
         } else {
-            console.log(`[ChisDiscord] ${client.user.username} Discord BOT Ready Chis Discord!`);
+            console.log(`[MCstats] ${client.user.username} Discord BOT Ready Chis Discord!`);
             botReady = true;
         }
 
@@ -61,46 +61,7 @@ client.on("ready", async () => {
   if (!supportServer) return console.log("");
   // ———————————————[Status]———————————————
 
-  client.user.setActivity(`VORTEX BOT || STARTING UP!!`,
-  { type: "WATCHING" })
-
-        setInterval(() => {
-
-            client.user.setActivity(`${prefix}help & /help`,
-            { type: "WATCHING" })
-
-            setTimeout(function() {
-                client.user.setActivity(`${prefix}help || VORTEX BOT`,
-                { type: "WATCHING" })
-            }, 30000)
-
-            setTimeout(function() {
-                client.user.setActivity(`${prefix}help || NOTICE ME SENPAI!!`,
-                { type: "WATCHING" })
-            }, 40000)
-
-            setTimeout(function() {
-                client.user.setActivity(`${prefix}help || BOT Version 7.5 (BETA)`,
-                { type: "WATCHING" })
-            }, 50000)
-
-            setTimeout(function() {
-                client.user.setActivity(`${prefix}help || Connected: ${client.guilds.cache.size} ${
-                  client.guilds.cache.size > 1 ? "Servers" : "Server"
-                }`,
-                { type: "WATCHING" })
-            }, 60000)
-
-            setTimeout(function() {
-                client.user.setActivity(`${prefix}help || Surving: ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} ${
-                  client.guilds.cache.reduce((a, b) => a + b.memberCount, 0) > 1
-                    ? "Users,"
-                    : "User,"
-                }`,
-                { type: "WATCHING" })
-            }, 70000)
-
-        }, 80000)
+  client.user.setActivity(`Do ${prefix}help for help`, { type: "PLAYING" });
 
         //client.user.setActivity(`${prefix}help || IF READING THIS STATUS, RELINK BOT USING ADD TO SERVER ON BOT PROFILE, ADDED SLASH COMMANDS AND NEEDS PERMS.`,
         //    { type: "WATCHING" })
