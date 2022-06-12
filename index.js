@@ -14,18 +14,6 @@ client.on('ready', () => {
     console.log(`${client.user.tag} is online!`);
 });
 
-/*
-client.on("messageCreate", (message) => {
-  if (message.content.startsWith("ping")) {
-      fetch(`${botconfig.url}` + `/v1` + `/ping`, {
-          method: "get",
-          headers: { "Content-Type": "application/json", "key": `${botconfig.key}` }
-      })
-      .then((res) => res.json())
-      .then((json) => message.channel.send(json));
-  }
-});
-*/
 
 
 //Commands System
