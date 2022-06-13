@@ -2,3 +2,4 @@ add memory usage
 fix uptime - about 30 seconds ahead
 setup to use uuid or username
 setup vscode server
+make dynmap configurable
