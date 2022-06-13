@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
     embed.addField(
     "General",
     [
-        "**❯ Developer:** [BallisticOK](https://atomicgaming666.com) / [ReactiveSlime](https://reactiveslime.me)",
+        "**❯ Developer:** [BallisticOK](https://atomicgaming666.com) / [ReactiveSlime](https://reactivesli.me)",
         `**❯ Creation Date:** ${CreatedDate}`,
         `**❯ Node.js:** ${process.version}`,
         `**❯ Discord.js:** v${DiscordJSVersion}`,

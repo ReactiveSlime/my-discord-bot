@@ -33,6 +33,16 @@ module.exports.run = async (client, message, args) => {
                     var hours = Math.floor((uptime % 86400) / 3600);
                     var minutes = Math.floor((uptime % 3600) / 60);
                     var seconds = Math.floor(uptime % 60);
+
+                    //get memory usage
+                    var maxMemory = json.health.maxMemory;
+                    var freeMemory = json.health.freeMemory;
+                    var usedMemory = json.health.totalMemory
+                    //convert bytes to gb
+                    var maxMemoryGB = (maxMemory /1024/1024/1024).toFixed(2);
+                    var freeMemoryGB = (freeMemory /1024/1024/1024).toFixed(2);
+                    var usedMemoryGB = (usedMemory /1024/1024/1024).toFixed(2);
+
                     // embed
                     let embed = new MessageEmbed();
                     embed.setTitle("Server Information")
@@ -40,6 +50,7 @@ module.exports.run = async (client, message, args) => {
                     embed.addField(`Server MODT`, `${json.motd}`)
                     embed.addField("Weather", `${weather}`, true);
                     embed.addField(`TPS`, `${json.tps}`)
+                    embed.addField('Memory Usage', `${usedMemoryGB}GB / ${maxMemoryGB}GB`, true);
                     embed.addField(`Uptime`, `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`)
                     message.channel.send({
                         embeds: [embed]
