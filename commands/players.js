@@ -75,6 +75,7 @@ module.exports.run = async (client, message, args) => {
                                     `**❯ Hunger:** ${hunger}`,
                                     `**❯ Dimension:** ${dimension}`,
                                     `**❯ XYZ:** ${x}, ${y}, ${z},`,
+                                    "**❯ Dynmap:** [Open Link](#)",
                                 ].join('\n'),
                             )
                             message.channel.send({ embeds: [embed] })
