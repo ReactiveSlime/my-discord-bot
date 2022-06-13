@@ -11,6 +11,8 @@ const axios = require("axios");
 module.exports.run = async (client, message, args) => {
     //make it so the command starting with rcon can only be used by users with the role id specified in the config.json under rcon_role_id
     if (message.member.roles.cache.find((r) => r.name === "rcon")) {
+        //delete the command message
+        message.delete();
         //if the user has the role, execute the command
         if (args.length == 0) {
             message.channel.send("Please specify a command to execute.");
