@@ -24,6 +24,7 @@ module.exports.run = async (client, message, args) => {
         `**❯ Creation Date:** ${CreatedDate}`,
         `**❯ Node.js:** ${process.version}`,
         `**❯ Discord.js:** v${DiscordJSVersion}`,
+        `**❯ Github:** https://github.com/ReactiveSlime/my-discord-bot/`,
     ].join("\n")
     );
 
