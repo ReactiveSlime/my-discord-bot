@@ -34,13 +34,15 @@ module.exports.run = async (client, message, args) => {
                 message.channel.send({ embeds: [embed] })
             })
     } else {
-        fetch(`https://api.mojang.com/user/profiles/${args[0]}/names`, { method: "get", })
+        fetch(`https://api.minecraftservices.com/minecraft/profile/lookup/name/${args[0]}`, { method: "get", })
             .then((res) => res.json())
             .then((json) => {
-                if (json.error == "BadRequestException") {
+                if (json.errorMessage == "Couldn't find any profile with that name") {
                     message.channel.send("Invalid UUID")
                 } else {
-                    fetch(`${botconfig.url}` + `/v1` + `/players/${args[0]}`, {
+                    //get uuid from json.id and add - 9 characters in and 5 after that and 5 after that
+                    let uuid = json.id.substring(0, 8) + "-" + json.id.substring(8, 12) + "-" + json.id.substring(12, 16) + "-" + json.id.substring(16, 20) + "-" + json.id.substring(20, 36);
+                    fetch(`${botconfig.url}` + `/v1` + `/players/${uuid}`, {
                         method: "get",
                         headers: { "Content-Type": "application/json", "key": `${botconfig.key}` }
                     })
@@ -54,13 +56,24 @@ module.exports.run = async (client, message, args) => {
                             let health = Math.ceil(json.health);
                             let hunger = Math.ceil(json.hunger);
 
-
-
-
                             if (json.dimension == "NORMAL") { var dimension = "Overworld"; }
                             else if (json.dimension == "NETHER") { var dimension = "The Nether"; }
                             else if (json.dimension == "END") { var dimension = "The End"; }
                             else { var dimension = "Unknown"; }
+
+
+                            //dynmap vars
+                            if (json.dimension == "NORMAL") { var dyn_dim = "world"; }
+                            else if (json.dimension == "NETHER") { var dyn_dim = "world_nether"; }
+                            else if (json.dimension == "END") { var dyn_dim = "world_the_end"; }
+                            else { var dyn_dim = "Unknown"; }
+
+                            //Gamemode vars
+                            if (json.gamemode == "SURVIVAL") { var gamemode = "Pesent Mode"; }
+                            else if (json.gamemode == "CREATIVE") { var gamemode = "God Mode"; }
+                            else if (json.gamemode == "SPECTATOR") { var gamemode = "Spectator"; }
+                            else { var dyn_dim = "Unknown"; }
+
 
                             // embed
                             let embed = new MessageEmbed();
@@ -68,14 +81,14 @@ module.exports.run = async (client, message, args) => {
                             embed.setColor("#0099ff");
                             embed.setThumbnail('https://crafatar.com/avatars/' + json.uuid);
                             embed.addField(
-                                `**❯ UUID:** ${json.uuid}`,
+                                `**Server Info**`,
                                 [
-                                    `**❯ GameMode:** ${json.gamemode}`,
+                                    `**❯ GameMode:** ${gamemode}`,
                                     `**❯ Health:** ${health}`,
                                     `**❯ Hunger:** ${hunger}`,
                                     `**❯ Dimension:** ${dimension}`,
                                     `**❯ XYZ:** ${x}, ${y}, ${z},`,
-                                    "**❯ Dynmap:** [Open Link](#)",
+                                    `**❯ Dynmap:** [Open Link](https://map.reactivesli.me/?worldname=${dyn_dim}&mapname=flat&zoom=6&x=${x}&y=${y}&z=${z})`,
                                 ].join('\n'),
                             )
                             message.channel.send({ embeds: [embed] })

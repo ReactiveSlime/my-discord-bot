@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
             //execute the command
             axios
                 .get(
-                    `https://api.reactivesli.me/api.php?&command=` +
+                    `https://api.reactivesli.me/rcon/api.php?&command=` +
                     args.join(" ") +
                     `&server_ip=` +
                     botconfig.server_ip +
