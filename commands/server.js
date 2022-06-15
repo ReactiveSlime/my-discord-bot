@@ -7,7 +7,7 @@ module.exports = {
 const { MessageEmbed } = require("discord.js");
 const fetch = require('node-fetch');
 var botconfig = require('../config.json');
-var urls = require('./urls.json');
+var urls = require('../urls.json');
 
 module.exports.run = async (client, message, args) => {
     fetch(`${botconfig.url}` + `/v1` + `/server`, {
