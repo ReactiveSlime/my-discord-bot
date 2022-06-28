@@ -1,12 +1,12 @@
 {
     "name": "mnecraft-stats",
     "version": "1.0.0",
-    "description": "Vortex BOT Made by ChisdealHDYT & AtomicGaming666",
+    "description": "Minecraft Stats bot made by ReactiveSlime & AtomicGaming666",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "ChisdealHDYT",
+    "author": "ReactiveSlime & AtomicGaming666",
     "license": "MIT",
     "dependencies": {
         "axios": "^0.27.2",
