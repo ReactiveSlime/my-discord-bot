@@ -45,8 +45,8 @@ module.exports.run = async (client, message, args) => {
         })
         //upload file to dl.reactivesli.me/upload with http headers
         .then(() => {
-            axios.post(`${botconfig.url}` + `/v1/worlds/upload`, {
-                headers: { "Content-Type": "application/zip", "key": `${botconfig.key}` },
+            axios.post(`https://dl.reactivesli.me/upload/`, {
+                headers: { "accepts": "application/zip", "Linx-Expiry": 86400, "Linx-Randomize": "yes" },
                 data: fs.createReadStream(`./temp/${timestamp}.zip`)
             })
                 .then((res) => {
