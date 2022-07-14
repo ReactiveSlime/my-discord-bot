@@ -15,8 +15,8 @@ module.exports.run = async (client, message, args) => {
         message.delete();
         //if the user has the role, execute the command
         if (args.length == 0) {
-            message.channel.send("Please specify a command to execute.");
-            message.react("<:mchearthalf:985235372818722887>");
+            message.channel.send("Please specify a command to execute.").then(msg => {msg.react("<:mchearthalf:985235372818722887>")});
+            //message.react("<:mchearthalf:985235372818722887>");
         } else {
             //execute the command
             axios
@@ -44,13 +44,13 @@ module.exports.run = async (client, message, args) => {
                     //send embed
                     message.channel.send({
                         embeds: [embed],
-                        });
-                    message.react("<:mcheartfull:985235371308744724>");
+                        }).then(msg => {msg.react("<:mcheartfull:985235371308744724>")});
+                    //message.react("<:mcheartfull:985235371308744724>");
                 });
         }
     } else {
-        message.channel.send("You do not have permission to use this command.");
-        message.react("<:mcheartempty:985235369756860436>");
+        message.channel.send("You do not have permission to use this command.").then(msg => {msg.react("<:mcheartempty:985235369756860436>")});
+        //message.react("<:mcheartempty:985235369756860436>");
     }
 };
 

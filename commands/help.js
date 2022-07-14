@@ -23,7 +23,7 @@ module.exports.run = async (client, message, args) => {
             `${botconfig.prefix}about`,
         ].join('\n'),
     );
-    message.channel.send({ embeds: [newEmbed] })
+    message.channel.send({ embeds: [embed] })
 }
 module.exports.help = {
 
