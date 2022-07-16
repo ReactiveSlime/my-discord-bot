@@ -10,7 +10,7 @@ var botconfig = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
 
-    const version = "v1.0.1";
+    const version = "v1.0.0";
     //get bots created date
     const CreatedDate = new Date(message.client.user.createdAt);
     //get discord.js version
@@ -34,7 +34,7 @@ module.exports.run = async (client, message, args) => {
         fetch(`https://api.github.com/repos/ReactiveSlime/my-discord-bot/releases/latest`)
         .then((res) => res.json())
         .then((json) => {
-            if (json.tag_name > version) {
+            if (json.tag_name != version) {
                 embed.addField(
                     "**❯ New Release:**",
                     `**❯ Version:** ${json.tag_name}`,
