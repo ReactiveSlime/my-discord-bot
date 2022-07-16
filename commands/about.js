@@ -34,12 +34,13 @@ module.exports.run = async (client, message, args) => {
         fetch(`https://api.github.com/repos/ReactiveSlime/my-discord-bot/releases/latest`)
         .then((res) => res.json())
         .then((json) => {
-            console.log(json)
             if (json.tag_name > version) {
                 embed.addField(
                     "**❯ New Release:**",
+                    [
                     `**❯ Version:** ${json.tag_name}`,
                     `**❯ Link:** ${json.html_url}`
+                ].join("\n")
                 );
             }
         }
