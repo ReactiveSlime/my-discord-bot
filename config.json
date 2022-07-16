@@ -1,0 +1,14 @@
+{
+    "token": "OTg1MTE1NjkyMDQwODQ3Mzkw.GIFQRX.J1ilSmhqem93i7CoqSm3OmzLSbHm_TrDsG_6UE",
+    "prefix": "!",
+    "url": "http://play.reactivesli.me:4567",
+    "key":"SuperSecretPassword",
+    "world_uuid":"eb097c21-424c-43c3-8282-7cbb20e4a303",
+    "world_nether":"bfd360a4-8132-4213-a606-f7c661f4ce77",
+    "world_the_end":"a258db1f-f860-4994-93ce-3a843125064d",
+    "developerid": ["321590712665636865", "902736282998947851"],
+    "server_ip": "58.109.94.18",
+    "rcon_port": "25575",
+    "rcon_pw": "SuperSecretPassword",
+    "rcon_role_id": ["985537227272646728"]
+}

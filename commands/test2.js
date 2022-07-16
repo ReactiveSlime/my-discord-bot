@@ -1,17 +1,18 @@
 module.exports = {
-    name: "test",
-    description: "test",
+    name: "test2",
+    description: "test2",
     cooldown: 5,
 };
 
 const { MessageEmbed } = require("discord.js");
 const fetch = require("node-fetch");
 var botconfig = require("../config.json");
+const fs = require("fs");
 
 module.exports.run = async (client, message, args) => {
     //get URL from the server folder with the server ID as the file name
     var serverID = message.guild.id;
-    var serverFolder = "./servers/" + serverID;
+    var serverFolder = "././servers/" + serverID;
     var serverFile = serverFolder + "/serverTap.json";
     var serverTap = JSON.parse(fs.readFileSync(serverFile));
     var url = serverTap.url;
@@ -64,6 +65,6 @@ module.exports.run = async (client, message, args) => {
 };
 
 module.exports.help = {
-    name: "test",
-    description: "test",
+    name: "test2",
+    description: "test2",
 };
