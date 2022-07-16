@@ -44,6 +44,18 @@ client.on('messageCreate', message => {
     if (commands.get(label)) {
         // ... get the command with that label and run it with the bot, the
         // message variable, and the args as parameters
+        //add a cooldown to the commands so that the bot doesn't spam the server with the same command
+        if (commands.get(label).cooldown) {
+            if (commands.get(label).cooldown.has(message.author.id)) {
+                return;
+            } else {
+                commands.get(label).cooldown.add(message.author.id);
+                setTimeout(() => {
+                    commands.get(label).cooldown.delete(message.author.id);
+                }
+                    , commands.get(label).cooldownTime);
+            }
+        }
         commands.get(label).run(client, message, args);
     }
 });
