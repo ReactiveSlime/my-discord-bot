@@ -43,6 +43,11 @@ module.exports.run = async (client, message, args) => {
             }
         }
         )
+        //get error if error then show error message
+        .catch((err) => {
+            console.log(err)
+        }
+        )
         message.channel.send({ embeds: [embed] });
 }
 
