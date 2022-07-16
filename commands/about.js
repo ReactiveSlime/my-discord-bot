@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
     const CreatedDate = new Date(message.client.user.createdAt);
     //get discord.js version
     const DiscordJSVersion = require("discord.js").version;
-    const version = "v1.0.1"; // you can change this to the latest version of the bot if you want to keep your curent code and remove the update message
+    const version = require("../package.json").version; 
     fetch(`https://api.github.com/repos/ReactiveSlime/my-discord-bot/releases/latest`)
         .then((res) => res.json())
         .then((json) => {
