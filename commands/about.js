@@ -31,9 +31,11 @@ module.exports.run = async (client, message, args) => {
     ].join("\n")
     )
         //look on github for the latest release and get the version number and if its grater than the current version then show a new release message
-        fetch(`https://api.github.com/repos/ReactiveSlime/my-discord-bot/releases/latest`)
-        .then((res) => res.json())
-        .then((json) => {
+        fetch(`https://api.github.com/repos/ReactiveSlime/my-discord-bot/releases/latest`, {
+            method: "get"
+        })
+            .then((res) => res.json())
+            .then((json) => {
             console.log(json);
             if (json.tag_name != version) {
                 embed.addField(
