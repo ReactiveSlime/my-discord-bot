@@ -29,7 +29,7 @@ module.exports.run = async (client, message, args) => {
         `**❯ Discord.js:** v${DiscordJSVersion}`,
         `**❯ Github:** https://github.com/ReactiveSlime/my-discord-bot/`
     ].join("\n")
-    )
+    ),
         //do a get request to the github api to get the latest release
         fetch(`https://api.github.com/repos/ReactiveSlime/my-discord-bot/releases/latest`)
         .then((res) => res.json())
