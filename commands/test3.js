@@ -10,7 +10,7 @@ var botconfig = require("../config.json");
 
 module.exports.run = async (client, message, args) => {
 
-    const version = "v1.0.1";
+    const version = "1.0.0";
     //get bots created date
     const CreatedDate = new Date(message.client.user.createdAt);
     //get discord.js version
