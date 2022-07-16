@@ -26,7 +26,21 @@ module.exports.run = async (client, message, args) => {
         `**❯ Discord.js:** v${DiscordJSVersion}`,
         `**❯ Github:** https://github.com/ReactiveSlime/my-discord-bot/`,
     ].join("\n")
-    );
+        );
+        //check github for latest version and if it is newer than the current version then add a field to the embed
+        fetch(`https://api.github.com/repos/ReactiveSlime/my-discord-bot/releases/latest`)
+        .then((res) => res.json())
+        .then((json) => {
+            if (json.tag_name > "v" + "1.0.0") {
+                embed.addField(
+                    "**❯ Update Available:**",
+                    `**❯ Version:** ${json.tag_name}`,
+                    true
+                );
+            }
+        }
+        )
+
 
     message.channel.send({
     embeds: [embed],
