@@ -42,14 +42,6 @@ module.exports.run = async (client, message, args) => {
                     `**❯ Link:** ${json.html_url}`
                 ].join("\n")
                 );
-            } else {
-                embed.addField(
-                    "**❯ New Release:**",
-                    [
-                    "**❯ No new release available**"
-                ]
-                .join("\n")
-                );
             }
         }
         )
