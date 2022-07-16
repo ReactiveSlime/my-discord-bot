@@ -1,6 +1,6 @@
 {
     "name": "mnecraft-stats",
-    "version": "1.0.1",
+    "version": "v1.0.1",
     "comment": "Chnage the Version to the latest version of the bot if you want to keep your code and not update",
     "description": "Minecraft Stats bot made by ReactiveSlime & AtomicGaming666",
     "main": "index.js",
