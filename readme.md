@@ -14,13 +14,13 @@ Rename or copy the config-template.json file and name it config.json
     "prefix": "",// your bots token
     "url": "",// the URL for your API
     "key":"",// your password you set in ServerTap plugin config file
-    "world_uuid":"",// the UUID on The world can get from ServerTap endpoint
-    "world_nether":"",// the UUID on The Nether can get from ServerTap endpoint
-    "world_the_end":"",// the UUID on The End can get from ServerTap endpoint
+    "world_uuid":"",// the UUID on The world can get from ServerTap endpoint (optional)
+    "world_nether":"",// the UUID on The Nether can get from ServerTap endpoint (optional)
+    "world_the_end":"",// the UUID on The End can get from ServerTap endpoint (optional)
     "developerid": ["", ""],// your discord ID
-    "server_ip": "",// your MC server IP
-    "rcon_port": "",// your MC server Rcon port
-    "rcon_pw": ""// your MC server Rcon password
+    "server_ip": "",// your MC server IP (optional)
+    "rcon_port": "",// your MC server Rcon port (optional)
+    "rcon_pw": ""// your MC server Rcon password (optional)
 }
 ```
 
